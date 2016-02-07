@@ -17,4 +17,4 @@ console.log(weekGen.run()); // [Array[7], Array[7], Array[7], Array[7], Array[7]
 ```
 
 See the example below:
-![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/example.png)
+![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
