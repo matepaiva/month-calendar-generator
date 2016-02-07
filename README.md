@@ -15,3 +15,6 @@ console.log(weekGen.lastMonthDay); // opposite of above. "2016, 2" should return
 console.log(weekGen.month); //"2016, 2" returns 1.
 console.log(weekGen.run()); // [Array[7], Array[7], Array[7], Array[7], Array[7], Array[7]]
 ```
+
+See the example below:
+![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/example.png)
