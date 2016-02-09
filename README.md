@@ -3,7 +3,7 @@
 ```javascript
 var calendar = document.getElementById("calendar"); //the outer element.
 
-monthCalendarGen().constructSheet(calendar); // build the calendar inside it.
+monthCalendarGen().constructSheet(calendar); // build the calendar inside of that element.
 ```
 
 ![monthCalendar Example Image](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/calendar.png)
