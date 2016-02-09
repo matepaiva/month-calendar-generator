@@ -7,7 +7,7 @@ With Month Calendar Generator, we ask you a year and a month -- and we return to
 - as an table with all the content and a bunch of classes set up,
 - or as divs inside divs, instead of a table but with the same features (just for those who has a problem with tables).
 
-And it's just 2k. Download it now!
+And it's just 2k. [Download it now](https://raw.githubusercontent.com/matepaiva/monthCalendar-Generator/master/monthCalendarGen.min.js)!
 
 ## Ok, I want just the array of arrays.
 This is a good option when you want to do something else with the data.
@@ -236,4 +236,4 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
       .next-month
 ```
 ##And that's it!
-Feel free to contribute with the code and fork the repository. And here you have the link to download the minified version of Month Calendar Generator.
+Feel free to contribute with the code and fork the repository. And [here you have the link to download the minified version](https://raw.githubusercontent.com/matepaiva/monthCalendar-Generator/master/monthCalendarGen.min.js) of **Month Calendar Generator**.
