@@ -1,0 +1,22 @@
+.month-head{
+    background-color: black;
+    color: white;
+}
+
+
+
+.day {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+}
+
+.last-month {
+    color: lightslategray;
+}
+
+.next-month {
+    color: darkseagreen;
+}
