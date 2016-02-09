@@ -1,5 +1,8 @@
-# Month-Calendar Generator
-With Month-Calendar Generator, we ask you a year and a month -- and we return to you the sheet of that period in 3 different ways: 
+# Month Calendar Generator
+
+![monthCalendar Example Image](https://github.com/matepaiva/monthCalendar-Generator/blob/master/calendar.png)
+
+With Month Calendar Generator, we ask you a year and a month -- and we return to you the sheet of that period in 3 different ways: 
 - as an array of arrays (6 lines with 7 days in each),
 - as an table with all the content and a bunch of classes set up,
 - or as divs inside divs, instead of a table but with the same features (just for those who has a problem with tables).
@@ -12,7 +15,7 @@ This is a good option when you want to do something else with the data.
 ```javascript
 var weeksNow = monthCalendarGen().run(); // returns an array of the current month divided by 6 lines (array), which one containing another array with 7 days.
 ```
-![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
+![monthCalendar Example Console](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
 
 Pay attention: if you pass no argument to monthCalendarGen(), it will consider you are talking about the current momment. And, when passing the date, you can make the most of the JavaScript ways to create dates:
 
