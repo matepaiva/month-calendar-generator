@@ -2,6 +2,8 @@
 
 ![monthCalendar Example Image](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/calendar.png)
 
+See and interact with [examples here](http://matepaiva.github.io/projetos/month-calendar-generator/).
+
 With Month Calendar Generator, we ask you a year and a month -- and we return to you the sheet of that period in 3 different ways: 
 - as an array of arrays (6 lines with 7 days in each),
 - as an table with all the content and a bunch of classes set up,
