@@ -1,5 +1,11 @@
 # Month Calendar Generator
 
+```javascript
+var calendar = document.getElementById("calendar"); //the outer element.
+
+monthCalendarGen().constructSheet(calendar); // build the calendar inside it.
+```
+
 ![monthCalendar Example Image](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/calendar.png)
 
 See and interact with [examples here](http://matepaiva.github.io/projetos/month-calendar-generator/).
@@ -19,13 +25,14 @@ var weeksNow = monthCalendarGen().run(); // returns an array of the current mont
 ```
 ![monthCalendar Example Console](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/example.png)
 
-Pay attention: if you pass no argument to monthCalendarGen(), it will consider you are talking about the current momment. And, when passing the date, you can make the most of the JavaScript ways to create dates:
+You must pass the date as two arguments, first being year(YYYY) and second being month (MM). Remember: in JavaScript, month starts at 0 and ends at 11.
+
+If you pass no argument to monthCalendarGen() or a wrong argument (like a string), it will assume date is New Date() -- which means, now. You will get the sheet of the current month.
 
 ```javascript
-var December2016 = monthCalendarGen("2016, 12").run();  // same as...
-    December2016 = monthCalendarGen("2016, dec").run(); // same as...
-    December2016 = monthCalendarGen(1481335200000).run(); // same as...
-    December2016 = monthCalendarGen("Fri Dec 02 2016 00:00:00 GMT-0200 (BRST)").run(); // same as... You got it.
+var December2016 = monthCalendarGen(2016, 11).run();
+var currentMonth = monthCalendarGen().run();
+var alsoCurrentmonth = monthCalendarGen("ablablidubla").run();
 ```
 
 But if you want to build a calendar, we can handle this. You will see now.
@@ -49,7 +56,7 @@ This...
 ```javascript
 var calendar = document.getElementById("calendar"); //the outer element.
 
-monthCalendarGen("2016, mar").constructSheet(calendar);
+monthCalendarGen(2016, 2).constructSheet(calendar);
 ```
 ...will become this:
 ```html
@@ -129,7 +136,7 @@ If you want it to display as table, you just have to pass an extra argument into
 ```javascript
 var calendar = document.getElementById("calendar"); //the outer element.
 
-monthCalendarGen("2016, mar").constructSheet(calendar, {table:true});
+monthCalendarGen(2016, 2).constructSheet(calendar, {table:true});
 ```
 And then, when you reload your html, it will be like this:
 ```html
