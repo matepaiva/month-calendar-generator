@@ -1,10 +1,10 @@
 # Month-Calendar Generator
-With Month-Calendar Generator, we ask you a year and a month -- and return to you the sheet of that month in 3 different ways: 
+With Month-Calendar Generator, we ask you a year and a month -- and we return to you the sheet of that period in 3 different ways: 
 - as an array of arrays (6 lines with 7 days in each),
 - as an table with all the content and a bunch of classes set up,
 - or as divs inside divs, instead of a table but with the same features (just for those who has a problem with tables).
 
-And it's just 2.1k. Download it now!
+And it's just 2k. Download it now!
 
 ## Ok, I want just the array of arrays.
 This is a good option when you want to do something else with the data.
@@ -14,7 +14,7 @@ var weeksNow = monthCalendarGen().run(); // returns an array of the current mont
 ```
 ![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
 
-Pay attention: if you pass no argument to monthCalendarGen(), it will consider you are talking about the current momment. And, when passing the date, you can make the most of the JavaScript ways to crete dates:
+Pay attention: if you pass no argument to monthCalendarGen(), it will consider you are talking about the current momment. And, when passing the date, you can make the most of the JavaScript ways to create dates:
 
 ```javascript
 var December2016 = monthCalendarGen("2016, 12").run();  // same as...
@@ -119,7 +119,6 @@ monthCalendarGen("2016, mar").constructSheet(calendar);
 ```
 Isn't it beautiful?
 
-<<<<<<< HEAD
 If you want it to display as table, you just have to pass an extra argument into an config object:
 
 ```javascript
@@ -208,11 +207,14 @@ Untill now, there are 3 values you can set in your config object:
 
 ```javascript
   var config = {
-    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"], // Default is english, but you can set manually for any name you want.
+    // Default is english, but you can set manually for any name you want for the months.
+    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    
+    // Below is what is going to happen when you click on a calendar day. It's a way to connect the calendar with outside code. That's the reason for data-date (now you know). If not set, nothing will happen on click.
     sendDateTo: function(date){
-      console.log(date);
-    }, // It's what is going to happen when you click on a calendar day. It's a way to connect the calendar with outside code. That's the reason for data-date (now you know). If not set, nothing will happen on click.
-    table: true || false // default is false.
+      console.log(date); //example
+    }, 
+    table: true // default is false.
   };
 ```
 
@@ -232,8 +234,3 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
 ```
 ##And that's it!
 Feel free to contribute with the code and fork the repository. And here you have the link to download the minified version of Month Calendar Generator.
-=======
-See the example below:
-
-![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
->>>>>>> 52661c5c885515a94ace5d477fa2085859569e16

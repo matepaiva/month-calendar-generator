@@ -38,9 +38,7 @@ var monthCalendarGen = function(date){
 
         var config = {
             months: configObj.months || ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            sendDateTo: configObj.sendDateTo || function(date){
-                console.log(date);
-            },
+            sendDateTo: configObj.sendDateTo,
             table: configObj.table || false,
         };
         
