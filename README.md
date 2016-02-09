@@ -1,13 +1,13 @@
 # Month Calendar Generator
 
-![monthCalendar Example Image](https://github.com/matepaiva/monthCalendar-Generator/blob/master/calendar.png)
+![monthCalendar Example Image](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/calendar.png)
 
 With Month Calendar Generator, we ask you a year and a month -- and we return to you the sheet of that period in 3 different ways: 
 - as an array of arrays (6 lines with 7 days in each),
 - as an table with all the content and a bunch of classes set up,
 - or as divs inside divs, instead of a table but with the same features (just for those who has a problem with tables).
 
-And it's just 2k. [Download it now](https://raw.githubusercontent.com/matepaiva/monthCalendar-Generator/master/monthCalendarGen.min.js)!
+And it's just 2k. [Download it now](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/monthCalendarGen.min.js)!
 
 ## Ok, I want just the array of arrays.
 This is a good option when you want to do something else with the data.
@@ -15,7 +15,7 @@ This is a good option when you want to do something else with the data.
 ```javascript
 var weeksNow = monthCalendarGen().run(); // returns an array of the current month divided by 6 lines (array), which one containing another array with 7 days.
 ```
-![monthCalendar Example Console](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
+![monthCalendar Example Console](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/example.png)
 
 Pay attention: if you pass no argument to monthCalendarGen(), it will consider you are talking about the current momment. And, when passing the date, you can make the most of the JavaScript ways to create dates:
 
@@ -236,4 +236,4 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
       .next-month
 ```
 ##And that's it!
-Feel free to contribute with the code and fork the repository. And [here you have the link to download the minified version](https://raw.githubusercontent.com/matepaiva/monthCalendar-Generator/master/monthCalendarGen.min.js) of **Month Calendar Generator**.
+Feel free to contribute with the code and fork the repository. And [here you have the link to download the minified version](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/monthCalendarGen.min.js) of **Month Calendar Generator**.
