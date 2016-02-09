@@ -119,6 +119,7 @@ monthCalendarGen("2016, mar").constructSheet(calendar);
 ```
 Isn't it beautiful?
 
+<<<<<<< HEAD
 If you want it to display as table, you just have to pass an extra argument into an config object:
 
 ```javascript
@@ -231,3 +232,8 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
 ```
 ##And that's it!
 Feel free to contribute with the code and fork the repository. And here you have the link to download the minified version of Month Calendar Generator.
+=======
+See the example below:
+
+![monthCalendar Example](https://github.com/matepaiva/monthCalendar-Generator/blob/master/example.png)
+>>>>>>> 52661c5c885515a94ace5d477fa2085859569e16
