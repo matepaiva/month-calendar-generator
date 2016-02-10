@@ -105,6 +105,7 @@ var monthCalendarGen = function (yyyy, mm) {
 
   return {
     month: month,
+    year : year,
     firstMonthDay: firstMonthDay,
     lastMonthDay: lastMonthDay,
     firstCalendarDay: firstCalendarDay,
@@ -114,7 +115,7 @@ var monthCalendarGen = function (yyyy, mm) {
     },
     constructSheet: function (containerEl, array) {
       constructSheet(containerEl, array);
-    }
+    },
   };
 
 
