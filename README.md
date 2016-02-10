@@ -15,7 +15,7 @@ With Month Calendar Generator, we ask you a year and a month -- and we return to
 - as an table with all the content and a bunch of classes set up,
 - or as divs inside divs, instead of a table but with the same features (just for those who has a problem with tables).
 
-And it's just 2k. [Download it now](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/monthCalendarGen.min.js)!
+And it's just 2.8kB. [Download it now](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/monthCalendarGen.min.js)!
 
 ## Ok, I want just the array of arrays.
 This is a good option when you want to do something else with the data.
@@ -40,7 +40,7 @@ But if you want to build a calendar, we can handle this. You will see now.
 ## Build the calendar for me, please.
 Oh, it's a pleasure.
 
-All you have to do is passing the Year-month argument to the generator and one argument to the constructor: where it's going to build it.
+All you have to do is passing the Year-month arguments to the generator and one argument to the constructor: where it's going to build it.
 
 This...
 ```html
@@ -56,77 +56,86 @@ This...
 ```javascript
 var calendar = document.getElementById("calendar"); //the outer element.
 
-monthCalendarGen(2016, 2).constructSheet(calendar);
+monthCalendarGen(2016, 1).constructSheet(calendar);
 ```
 ...will become this:
 ```html
 <body>
- <div id="calendar">
-  <div class="month">
-    <div class="month-head">
-      <div class="month-title">2016 March</div>
-    </div>
-    <div class="month-body">
-      <div class="week">
-        <div class="last-month day" data-date="1456628400000">28</div>
-        <div class="last-month day" data-date="1456714800000">29</div>
-        <div class="day" data-date="1456801200000">1</div>
-        <div class="day" data-date="1456887600000">2</div>
-        <div class="day" data-date="1456974000000">3</div>
-        <div class="day" data-date="1457060400000">4</div>
-        <div class="day" data-date="1457146800000">5</div>
+  <div id="calendar">
+    <div class="month">
+      <div class="month-head">
+        <div class="month-title">2016 Fevereiro</div>
+        <div class="weekdays">
+          <div class="weekday">Dom</div>
+          <div class="weekday">Seg</div>
+          <div class="weekday">Ter</div>
+          <div class="weekday">Qua</div>
+          <div class="weekday">Qui</div>
+          <div class="weekday">Sex</div>
+          <div class="weekday">Sab</div>
+        </div>
       </div>
-      <div class="week">
-        <div class="day" data-date="1457233200000">6</div>
-        <div class="day" data-date="1457319600000">7</div>
-        <div class="day" data-date="1457406000000">8</div>
-        <div class="day" data-date="1457492400000">9</div>
-        <div class="day" data-date="1457578800000">10</div>
-        <div class="day" data-date="1457665200000">11</div>
-        <div class="day" data-date="1457751600000">12</div>
-      </div>
-      <div class="week">
-        <div class="day" data-date="1457838000000">13</div>
-        <div class="day" data-date="1457924400000">14</div>
-        <div class="day" data-date="1458010800000">15</div>
-        <div class="day" data-date="1458097200000">16</div>
-        <div class="day" data-date="1458183600000">17</div>
-        <div class="day" data-date="1458270000000">18</div>
-        <div class="day" data-date="1458356400000">19</div>
-      </div>
-      <div class="week">
-        <div class="day" data-date="1458442800000">20</div>
-        <div class="day" data-date="1458529200000">21</div>
-        <div class="day" data-date="1458615600000">22</div>
-        <div class="day" data-date="1458702000000">23</div>
-        <div class="day" data-date="1458788400000">24</div>
-        <div class="day" data-date="1458874800000">25</div>
-        <div class="day" data-date="1458961200000">26</div>
-      </div>
-      <div class="week">
-         <div class="day" data-date="1459047600000">27</div>
-         <div class="day" data-date="1459134000000">28</div>
-         <div class="day" data-date="1459220400000">29</div>
-         <div class="day" data-date="1459306800000">30</div>
-         <div class="day" data-date="1459393200000">31</div>
-         <div class="next-month day" data-date="1459479600000">1</div>
-         <div class="next-month day" data-date="1459566000000">2</div>
-      </div>
-      <div class="week">
-        <div class="next-month day" data-date="1459652400000">3</div>
-        <div class="next-month day" data-date="1459738800000">4</div>
-        <div class="next-month day" data-date="1459825200000">5</div>
-        <div class="next-month day" data-date="1459911600000">6</div>
-        <div class="next-month day" data-date="1459998000000">7</div>
-        <div class="next-month day" data-date="1460084400000">8</div>
-        <div class="next-month day" data-date="1460170800000">9</div>
+      <div class="month-body">
+        <div class="week">
+          <div class="last-month day" data-date="1454205600000">31</div>
+          <div class="day" data-date="1454292000000">1</div>
+          <div class="day" data-date="1454378400000">2</div>
+          <div class="day" data-date="1454464800000">3</div>
+          <div class="day" data-date="1454551200000">4</div>
+          <div class="day" data-date="1454637600000">5</div>
+          <div class="day" data-date="1454724000000">6</div>
+        </div>
+        <div class="week">
+          <div class="day" data-date="1454810400000">7</div>
+          <div class="day" data-date="1454896800000">8</div>
+          <div class="day" data-date="1454983200000">9</div>
+          <div class="today day" data-date="1455069600000">10</div>
+          <div class="day" data-date="1455156000000">11</div>
+          <div class="day" data-date="1455242400000">12</div>
+          <div class="day" data-date="1455328800000">13</div>
+        </div>
+        <div class="week">
+          <div class="day" data-date="1455415200000">14</div>
+          <div class="day" data-date="1455501600000">15</div>
+          <div class="day" data-date="1455588000000">16</div>
+          <div class="day" data-date="1455674400000">17</div>
+          <div class="day" data-date="1455760800000">18</div>
+          <div class="day" data-date="1455847200000">19</div>
+          <div class="day" data-date="1455933600000">20</div>
+        </div>
+        <div class="week">
+          <div class="day" data-date="1456023600000">21</div>
+          <div class="day" data-date="1456110000000">22</div>
+          <div class="day" data-date="1456196400000">23</div>
+          <div class="day" data-date="1456282800000">24</div>
+          <div class="day" data-date="1456369200000">25</div>
+          <div class="day" data-date="1456455600000">26</div>
+          <div class="day" data-date="1456542000000">27</div>
+        </div>
+        <div class="week">
+          <div class="day" data-date="1456628400000">28</div>
+          <div class="day" data-date="1456714800000">29</div>
+          <div class="next-month day" data-date="1456801200000">1</div>
+          <div class="next-month day" data-date="1456887600000">2</div>
+          <div class="next-month day" data-date="1456974000000">3</div>
+          <div class="next-month day" data-date="1457060400000">4</div>
+          <div class="next-month day" data-date="1457146800000">5</div>
+        </div>
+        <div class="week">
+          <div class="next-month day" data-date="1457233200000">6</div>
+          <div class="next-month day" data-date="1457319600000">7</div>
+          <div class="next-month day" data-date="1457406000000">8</div>
+          <div class="next-month day" data-date="1457492400000">9</div>
+          <div class="next-month day" data-date="1457578800000">10</div>
+          <div class="next-month day" data-date="1457665200000">11</div>
+          <div class="next-month day" data-date="1457751600000">12</div>
+        </div>
       </div>
     </div>
   </div>
- </div>
 
- <script src="monthCalendarGen.js"></script>
- <script src="index.js"></script>
+  <script src="monthCalendarGen.js"></script>
+  <script src="index.js"></script>
 </body>
 ```
 Isn't it beautiful?
@@ -145,63 +154,72 @@ And then, when you reload your html, it will be like this:
     <table class="month">
       <thead class="month-head">
         <tr class="month-head-line">
-          <th class="month-title" colspan="7">2016 March</th>
+          <th class="month-title" colspan="7">2016 Fevereiro</th>
+        </tr>
+        <tr class="weekdays">
+          <th class="weekday">Dom</th>
+          <th class="weekday">Seg</th>
+          <th class="weekday">Ter</th>
+          <th class="weekday">Qua</th>
+          <th class="weekday">Qui</th>
+          <th class="weekday">Sex</th>
+          <th class="weekday">Sab</th>
         </tr>
       </thead>
       <tbody class="month-body">
         <tr class="week">
-          <td class="last-month day" data-date="1456628400000">28</td>
-          <td class="last-month day" data-date="1456714800000">29</td>
-          <td class="day" data-date="1456801200000">1</td>
-          <td class="day" data-date="1456887600000">2</td>
-          <td class="day" data-date="1456974000000">3</td>
-          <td class="day" data-date="1457060400000">4</td>
-          <td class="day" data-date="1457146800000">5</td>
+          <td class="last-month day" data-date="1454205600000">31</td>
+          <td class="day" data-date="1454292000000">1</td>
+          <td class="day" data-date="1454378400000">2</td>
+          <td class="day" data-date="1454464800000">3</td>
+          <td class="day" data-date="1454551200000">4</td>
+          <td class="day" data-date="1454637600000">5</td>
+          <td class="day" data-date="1454724000000">6</td>
         </tr>
         <tr class="week">
-          <td class="day" data-date="1457233200000">6</td>
-          <td class="day" data-date="1457319600000">7</td>
-          <td class="day" data-date="1457406000000">8</td>
-          <td class="day" data-date="1457492400000">9</td>
-          <td class="day" data-date="1457578800000">10</td>
-          <td class="day" data-date="1457665200000">11</td>
-          <td class="day" data-date="1457751600000">12</td>
+          <td class="day" data-date="1454810400000">7</td>
+          <td class="day" data-date="1454896800000">8</td>
+          <td class="day" data-date="1454983200000">9</td>
+          <td class="today day" data-date="1455069600000">10</td>
+          <td class="day" data-date="1455156000000">11</td>
+          <td class="day" data-date="1455242400000">12</td>
+          <td class="day" data-date="1455328800000">13</td>
         </tr>
         <tr class="week">
-          <td class="day" data-date="1457838000000">13</td>
-          <td class="day" data-date="1457924400000">14</td>
-          <td class="day" data-date="1458010800000">15</td>
-          <td class="day" data-date="1458097200000">16</td>
-          <td class="day" data-date="1458183600000">17</td>
-          <td class="day" data-date="1458270000000">18</td>
-          <td class="day" data-date="1458356400000">19</td>
+          <td class="day" data-date="1455415200000">14</td>
+          <td class="day" data-date="1455501600000">15</td>
+          <td class="day" data-date="1455588000000">16</td>
+          <td class="day" data-date="1455674400000">17</td>
+          <td class="day" data-date="1455760800000">18</td>
+          <td class="day" data-date="1455847200000">19</td>
+          <td class="day" data-date="1455933600000">20</td>
         </tr>
         <tr class="week">
-          <td class="day" data-date="1458442800000">20</td>
-          <td class="day" data-date="1458529200000">21</td>
-          <td class="day" data-date="1458615600000">22</td>
-          <td class="day" data-date="1458702000000">23</td>
-          <td class="day" data-date="1458788400000">24</td>
-          <td class="day" data-date="1458874800000">25</td>
-          <td class="day" data-date="1458961200000">26</td>
+          <td class="day" data-date="1456023600000">21</td>
+          <td class="day" data-date="1456110000000">22</td>
+          <td class="day" data-date="1456196400000">23</td>
+          <td class="day" data-date="1456282800000">24</td>
+          <td class="day" data-date="1456369200000">25</td>
+          <td class="day" data-date="1456455600000">26</td>
+          <td class="day" data-date="1456542000000">27</td>
         </tr>
         <tr class="week">
-          <td class="day" data-date="1459047600000">27</td>
-          <td class="day" data-date="1459134000000">28</td>
-          <td class="day" data-date="1459220400000">29</td>
-          <td class="day" data-date="1459306800000">30</td>
-          <td class="day" data-date="1459393200000">31</td>
-          <td class="next-month day" data-date="1459479600000">1</td>
-          <td class="next-month day" data-date="1459566000000">2</td>
+          <td class="day" data-date="1456628400000">28</td>
+          <td class="day" data-date="1456714800000">29</td>
+          <td class="next-month day" data-date="1456801200000">1</td>
+          <td class="next-month day" data-date="1456887600000">2</td>
+          <td class="next-month day" data-date="1456974000000">3</td>
+          <td class="next-month day" data-date="1457060400000">4</td>
+          <td class="next-month day" data-date="1457146800000">5</td>
         </tr>
         <tr class="week">
-          <td class="next-month day" data-date="1459652400000">3</td>
-          <td class="next-month day" data-date="1459738800000">4</td>
-          <td class="next-month day" data-date="1459825200000">5</td>
-          <td class="next-month day" data-date="1459911600000">6</td>
-          <td class="next-month day" data-date="1459998000000">7</td>
-          <td class="next-month day" data-date="1460084400000">8</td>
-          <td class="next-month day" data-date="1460170800000">9</td>
+          <td class="next-month day active-day" data-date="1457233200000">6</td>
+          <td class="next-month day" data-date="1457319600000">7</td>
+          <td class="next-month day" data-date="1457406000000">8</td>
+          <td class="next-month day" data-date="1457492400000">9</td>
+          <td class="next-month day" data-date="1457578800000">10</td>
+          <td class="next-month day" data-date="1457665200000">11</td>
+          <td class="next-month day" data-date="1457751600000">12</td>
         </tr>
       </tbody>
     </table>
@@ -222,10 +240,14 @@ Untill now, there are 3 values you can set in your config object:
     // Default is english, but you can set manually for any name you want for the months.
     months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
     
+    // Default is english, but you can set manually for any name you want for the days of the week.
+    week: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+    
     // Below is what is going to happen when you click on a calendar day. It's a way to connect the calendar with outside code. That's the reason for data-date (now you know). If not set, nothing will happen on click.
     sendDateTo: function(date){
       console.log(date); //example
     }, 
+    
     table: true // default is false.
   };
 ```
@@ -238,11 +260,15 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
   .month-head
     .month-head-line
       .month-title
+    .weekdays
+      .weekday
   .month-body
     .week
       .day
       .last-month
       .next-month
+      .today
+      .active-day
 ```
 ##And that's it!
 Feel free to contribute with the code and fork the repository. And [here you have the link to download the minified version](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/monthCalendarGen.min.js) of **Month Calendar Generator**.

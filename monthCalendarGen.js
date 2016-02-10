@@ -12,7 +12,9 @@ var monthCalendarGen = function (yyyy, mm) {
   } else {
     d = new Date(yyyy, mm);
   }
-
+  
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var month = d.getMonth();
   var year = d.getFullYear();
   var firstMonthDay = new Date(d.getFullYear(), d.getMonth(), 1);
@@ -45,6 +47,7 @@ var monthCalendarGen = function (yyyy, mm) {
 
     var config = {
       months: configObj.months || ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      weekDays: configObj.weekDays || ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
       sendDateTo: configObj.sendDateTo,
       table: configObj.table || false,
     };
@@ -74,6 +77,19 @@ var monthCalendarGen = function (yyyy, mm) {
     } else {
       thead.appendChild(th);
     }
+    
+    var wDays = document.createElement(config.table ? 'tr' : 'div');
+    wDays.classList.add("weekdays");
+    thead.appendChild(wDays);
+    for (var h=0; h<config.weekDays.length; h++){
+      var wDay = document.createElement(config.table ? 'th' : 'div');
+      wDay.classList.add("weekday");
+      var wDayTxt = document.createTextNode(config.weekDays[h]);
+      wDay.appendChild(wDayTxt);
+      wDays.appendChild(wDay);
+    }
+    
+    
     table.appendChild(thead);
     table.appendChild(tbody);
     containerEl.appendChild(table);
@@ -87,12 +103,19 @@ var monthCalendarGen = function (yyyy, mm) {
           td.classList.add("last-month");
         } else if (array[i][j].getMonth() > month) {
           td.classList.add("next-month");
+        } else if(Date.parse(array[i][j]) == Date.parse(today)){
+          td.classList.add("today");
         }
         td.classList.add("day");
         var textNode = document.createTextNode(array[i][j].getDate());
         td.dataset.date = Date.parse(array[i][j]);
         if (config.sendDateTo) {
           td.onclick = function () {
+            var activeDay = document.getElementsByClassName("active-day");
+            for (var i=0; i<activeDay.length; i++){
+              activeDay[i].classList.remove("active-day");
+            }
+            this.classList.add("active-day");
             deliveryDate(this.dataset.date, config.sendDateTo);
           };
         }
@@ -106,6 +129,8 @@ var monthCalendarGen = function (yyyy, mm) {
   return {
     month: month,
     year : year,
+    today: today,
+    now: now,
     firstMonthDay: firstMonthDay,
     lastMonthDay: lastMonthDay,
     firstCalendarDay: firstCalendarDay,

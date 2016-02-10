@@ -1,20 +1,46 @@
-.month-head{
-    background-color: black;
-    color: white;
+.month{
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1px;
+  border-spacing: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.month-head {
+  width: 100%;
+  background-color: rgba(0,0,0,0.1);
 }
 
+.month-head * {
+  padding: 3px 0;
+}
+.day{
+  padding: 7px 0;
+}
+.month-body {
+  width: 100%;
+}
 .day {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    margin: 5px;
-    text-align: center;
+  width: 14.285%;
+  text-align: center;
 }
 
-.last-month {
-    color: lightslategray;
+.last-month{
+  color: lightgrey;
+  
+}
+.next-month{
+  color: darkred;
+  
 }
 
-.next-month {
-    color: darkseagreen;
+.today{
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.03);;
+  color: black;
+  border-radius: 1px;
+}
+
+.active-day {
+  border: 1px solid red;
+  border-radius: 1px;
 }
