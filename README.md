@@ -3,7 +3,18 @@
 ```javascript
 var calendar = document.getElementById("calendar"); //the outer element.
 
-monthCalendarGen().constructSheet(calendar); // build the calendar inside of that element.
+var config = {
+  months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+  weekDays: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+  sendDateTo: function(date){
+    var output = document.getElementById("output");
+    output.innerHTML = new Date(parseInt(date));
+  },
+  table: true,
+  hasButtons: true
+}
+
+monthCalendarGen().constructSheet(calendar, config); // build the current month calendar inside of that element.
 ```
 
 ![monthCalendar Example Image](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/calendar.png)
@@ -138,7 +149,7 @@ monthCalendarGen(2016, 1).constructSheet(calendar);
   <script src="index.js"></script>
 </body>
 ```
-Isn't it beautiful?
+Isn't it beautiful? ♥
 
 If you want it to display as table, you just have to pass an extra argument into an config object:
 
@@ -233,7 +244,7 @@ And then, when you reload your html, it will be like this:
 That's it. Now the details:
 
 ##The config object
-Untill now, there are 3 values you can set in your config object:
+There are some values you can set in your config object:
 
 ```javascript
   var config = {
@@ -248,7 +259,15 @@ Untill now, there are 3 values you can set in your config object:
       console.log(date); //example
     }, 
     
-    table: true // default is false.
+    table: true, // default is false.
+    
+    hasButtons: true, //default is false.
+    
+    butBackChar: "<", // default is "«",
+    
+    butNextChar: ">" // default is "»"
+};
+    
   };
 ```
 
@@ -259,7 +278,10 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
 .month
   .month-head
     .month-head-line
+      .button-before
+      .year-title
       .month-title
+      .button-next
     .weekdays
       .weekday
   .month-body

@@ -8,7 +8,8 @@ var config = {
   sendDateTo: function (date) {
     console.log(date); //example
   },
-  table: true // default is false.
+  table: true, // default is false
+  hasButtons: true,
 };
 
 monthCalendarGen().constructSheet(body, config);

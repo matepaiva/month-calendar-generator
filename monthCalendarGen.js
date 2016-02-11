@@ -2,8 +2,9 @@
 
 var monthCalendarGen = function (yyyy, mm) {
 
-  var regexMonth = /^[0-9]{1,2}$/;
-  var regexYear = /^[0-9]{4}$/;
+  var regexMonth = /^-?[0-9]{1,2}$/;
+  var regexYear = /^-?[0-9]{4}$/;
+
 
   var d;
 
@@ -12,7 +13,7 @@ var monthCalendarGen = function (yyyy, mm) {
   } else {
     d = new Date(yyyy, mm);
   }
-  
+
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var month = d.getMonth();
@@ -47,9 +48,17 @@ var monthCalendarGen = function (yyyy, mm) {
 
     var config = {
       months: configObj.months || ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-      weekDays: configObj.weekDays || ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+      weekDays: configObj.weekDays || ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       sendDateTo: configObj.sendDateTo,
       table: configObj.table || false,
+      hasButtons: configObj.hasButtons || false,
+      butBackChar: configObj.butBackChar || "«",
+      butNextChar: configObj.butNextChar || "»"
+    };
+
+    var changeSheet = function (n) {
+      containerEl.innerHTML = "";
+      monthCalendarGen(year, month + n).constructSheet(containerEl, configObj);
     };
 
     var array = weekGenerator(d);
@@ -60,36 +69,59 @@ var monthCalendarGen = function (yyyy, mm) {
     thead.classList.add("month-head");
     var tbody = document.createElement(config.table ? 'tbody' : 'div');
     tbody.classList.add("month-body");
-    if (config.table) {
-      var tr = document.createElement(config.table ? 'tr' : 'div');
-      tr.classList.add("month-head-line");
-      thead.appendChild(tr);
+    var tr = document.createElement(config.table ? 'tr' : 'div');
+    tr.classList.add("month-head-line");
+    thead.appendChild(tr);
+    var th0 = document.createElement(config.table ? 'th' : 'div');
+    th0.classList.add("button-before");
+    th0.colSpan = "1";
+
+    if (config.hasButtons) {
+      th0.appendChild(document.createTextNode(config.butBackChar));
+      th0.onclick = function () {
+        changeSheet(-1);
+      };
     }
+
     var th = document.createElement(config.table ? 'th' : 'div');
-    th.classList.add("month-title");
-    if (config.table) {
-      th.colSpan = "7";
-    }
-    var thText = document.createTextNode(year + " " + config.months[month]);
+    th.classList.add("year-title");
+    th.colSpan = "2";
+    var thText = document.createTextNode(year);
     th.appendChild(thText);
-    if (config.table) {
-      tr.appendChild(th);
-    } else {
-      thead.appendChild(th);
+
+    var th2 = document.createElement(config.table ? 'th' : 'div');
+    th2.colSpan = "3";
+    th2.classList.add("month-title");
+    var thText2 = document.createTextNode(config.months[month]);
+    th2.appendChild(thText2);
+    var th3 = document.createElement(config.table ? 'th' : 'div');
+    th3.classList.add("button-next");
+    th3.colSpan = "1";
+
+    if (config.hasButtons) {
+      th3.appendChild(document.createTextNode(config.butNextChar));
+      th3.onclick = function () {
+        changeSheet(1);
+      };
     }
-    
+
+    tr.appendChild(th0);
+    tr.appendChild(th);
+    tr.appendChild(th2);
+    tr.appendChild(th3);
+
     var wDays = document.createElement(config.table ? 'tr' : 'div');
     wDays.classList.add("weekdays");
     thead.appendChild(wDays);
-    for (var h=0; h<config.weekDays.length; h++){
+    for (var h = 0; h < config.weekDays.length; h++) {
       var wDay = document.createElement(config.table ? 'th' : 'div');
       wDay.classList.add("weekday");
       var wDayTxt = document.createTextNode(config.weekDays[h]);
       wDay.appendChild(wDayTxt);
       wDays.appendChild(wDay);
     }
-    
-    
+
+
     table.appendChild(thead);
     table.appendChild(tbody);
     containerEl.appendChild(table);
@@ -103,7 +135,7 @@ var monthCalendarGen = function (yyyy, mm) {
           td.classList.add("last-month");
         } else if (array[i][j].getMonth() > month) {
           td.classList.add("next-month");
-        } else if(Date.parse(array[i][j]) == Date.parse(today)){
+        } else if (Date.parse(array[i][j]) == Date.parse(today)) {
           td.classList.add("today");
         }
         td.classList.add("day");
@@ -112,7 +144,7 @@ var monthCalendarGen = function (yyyy, mm) {
         if (config.sendDateTo) {
           td.onclick = function () {
             var activeDay = document.getElementsByClassName("active-day");
-            for (var i=0; i<activeDay.length; i++){
+            for (var i = 0; i < activeDay.length; i++) {
               activeDay[i].classList.remove("active-day");
             }
             this.classList.add("active-day");
@@ -128,7 +160,7 @@ var monthCalendarGen = function (yyyy, mm) {
 
   return {
     month: month,
-    year : year,
+    year: year,
     today: today,
     now: now,
     firstMonthDay: firstMonthDay,
