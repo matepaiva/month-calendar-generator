@@ -156,7 +156,7 @@ If you want it to display as table, you just have to pass an extra argument into
 ```javascript
 var calendar = document.getElementById("calendar"); //the outer element.
 
-monthCalendarGen(2016, 2).constructSheet(calendar, {table:true});
+monthCalendarGen(2016, 1).constructSheet(calendar, {table:true});
 ```
 And then, when you reload your html, it will be like this:
 ```html
