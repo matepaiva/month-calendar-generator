@@ -44,3 +44,12 @@
   border: 1px solid red;
   border-radius: 1px;
 }
+
+.busy-day:before{
+  content: "·";
+  font-size: 35px;
+  line-height: 5px;
+  font-weight: bold;
+  color: darkred;
+  
+}

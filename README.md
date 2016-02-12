@@ -11,8 +11,9 @@ var config = {
     output.innerHTML = new Date(parseInt(date));
   },
   table: true,
-  hasButtons: true
-}
+  hasButtons: true,
+  busyDaysEntry: [1455588000000, 1457060400000], 
+};
 
 monthCalendarGen().constructSheet(calendar, config); // build the current month calendar inside of that element.
 ```
@@ -129,7 +130,7 @@ monthCalendarGen(2016, 1).constructSheet(calendar);
           <div class="next-month day" data-date="1456801200000">1</div>
           <div class="next-month day" data-date="1456887600000">2</div>
           <div class="next-month day" data-date="1456974000000">3</div>
-          <div class="next-month day" data-date="1457060400000">4</div>
+          <div class="next-month day busy-day" data-date="1457060400000">4</div>
           <div class="next-month day" data-date="1457146800000">5</div>
         </div>
         <div class="week">
@@ -220,7 +221,7 @@ And then, when you reload your html, it will be like this:
           <td class="next-month day" data-date="1456801200000">1</td>
           <td class="next-month day" data-date="1456887600000">2</td>
           <td class="next-month day" data-date="1456974000000">3</td>
-          <td class="next-month day" data-date="1457060400000">4</td>
+          <td class="next-month day busy-day" data-date="1457060400000">4</td>
           <td class="next-month day" data-date="1457146800000">5</td>
         </tr>
         <tr class="week">
@@ -261,11 +262,11 @@ There are some values you can set in your config object:
     
     table: true, // default is false.
     
-    hasButtons: true, //default is false.
+    //default is false. Generate button functionality and classes, where you can put a content or icons with pseudoelements.
+    hasButtons: true, 
     
-    butBackChar: "<", // default is "«",
-    
-    butNextChar: ">" // default is "»"
+    //Arrays of days with tasks. Can be an array OR a function that returns an array. We will call your function with 2 arguments: firstCalendarDay and lastCalendarDay.
+    busyDaysEntry: [1455588000000, 1457060400000], 
 };
     
   };
@@ -291,6 +292,7 @@ As you could see, there are some built-in classes inside the Month Calendar Gene
       .next-month
       .today
       .active-day
+      .busy-day
 ```
 ##And that's it!
 Feel free to contribute with the code and fork the repository. And [here you have the link to download the minified version](https://raw.githubusercontent.com/matepaiva/month-calendar-generator/master/monthCalendarGen.min.js) of **Month Calendar Generator**.

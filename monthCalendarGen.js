@@ -52,14 +52,20 @@ var monthCalendarGen = function (yyyy, mm) {
       sendDateTo: configObj.sendDateTo,
       table: configObj.table || false,
       hasButtons: configObj.hasButtons || false,
-      butBackChar: configObj.butBackChar || "«",
-      butNextChar: configObj.butNextChar || "»"
+      busyDaysEntry: configObj.busyDaysEntry || []
     };
 
     var changeSheet = function (n) {
       containerEl.innerHTML = "";
       monthCalendarGen(year, month + n).constructSheet(containerEl, configObj);
     };
+    
+    var busyDays;
+    if (typeof(config.busyDaysEntry) === "function"){
+      busyDays = config.busyDaysEntry(firstCalendarDay, lastCalendarDay);
+    } else{
+      busyDays = config.busyDaysEntry;
+    }
 
     var array = weekGenerator(d);
 
@@ -77,7 +83,6 @@ var monthCalendarGen = function (yyyy, mm) {
     th0.colSpan = "1";
 
     if (config.hasButtons) {
-      th0.appendChild(document.createTextNode(config.butBackChar));
       th0.onclick = function () {
         changeSheet(-1);
       };
@@ -99,7 +104,6 @@ var monthCalendarGen = function (yyyy, mm) {
     th3.colSpan = "1";
 
     if (config.hasButtons) {
-      th3.appendChild(document.createTextNode(config.butNextChar));
       th3.onclick = function () {
         changeSheet(1);
       };
@@ -141,6 +145,9 @@ var monthCalendarGen = function (yyyy, mm) {
         td.classList.add("day");
         var textNode = document.createTextNode(array[i][j].getDate());
         td.dataset.date = Date.parse(array[i][j]);
+        if(busyDays.indexOf(parseInt(td.dataset.date)) != -1){
+          td.classList.add("busy-day");
+        }
         if (config.sendDateTo) {
           td.onclick = function () {
             var activeDay = document.getElementsByClassName("active-day");
